@@ -26,7 +26,6 @@ public abstract class Subscriber {
 		this.address = address;
 	}
 	
-	// toString
 	@Override
 	public String toString() {
 		return "Subscriber [name=" + name + ", address=" + address + "]";

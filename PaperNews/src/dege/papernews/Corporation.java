@@ -38,4 +38,11 @@ public class Corporation extends Subscriber {
 		return "Bank Name: " + bankName + "\nBank Code: " + bankCode + "\nIssue Date: " + getIssueDate()
 				+ "\nAccount Number: " + accountNumber;
 	}
+
+	@Override
+	public String toString() {
+		return "Corporation [bankName=" + bankName + ", bankCode=" + bankCode + ", issueDay=" + issueDay
+				+ ", issueMonth=" + issueMonth + ", issueYear=" + issueYear + ", accountNumber=" + accountNumber
+				+ ", name=" + name + ", address=" + address + "]";
+	}
 }
