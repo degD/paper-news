@@ -4,51 +4,37 @@ public class Individual extends Subscriber {
 
 	private String creditCardNr;
 	private int expireMonth, expireYear;
-	private int CCV;
+	private int CVV;
 	
 	public Individual(String name, String address) {
 		super(name, address);
-	}
-
-	public String getCreditCardNr() {
-		return creditCardNr;
 	}
 
 	public void setCreditCardNr(String creditCardNr) {
 		this.creditCardNr = creditCardNr;
 	}
 
-	public int getExpireMonth() {
-		return expireMonth;
-	}
-
 	public void setExpireMonth(int expireMonth) {
 		this.expireMonth = expireMonth;
 	}
-
-	public int getExpireYear() {
-		return expireYear;
-	}
-
-	public void setExpireYear(int expireYear) {
+	
+	public void setExpireDate(int expireMonth, int expireYear) {
+		this.expireMonth = expireMonth;
 		this.expireYear = expireYear;
 	}
 
-	public int getCCV() {
-		return CCV;
-	}
-
-	public void setCCV(int cCV) {
-		CCV = cCV;
+	public void setCVV(int CVV) {
+		this.CVV = CVV;
 	}
 
 	@Override
 	public String getBillingInformation() {
-		String billingInfo = "Induvidual\n";
-		billingInfo += creditCardNr;
-		
+		return "Credit card number: " + creditCardNr + "\n" + "Expire date: " + expireMonth + "/" + expireYear + "\n" + "CVV: " + CVV;
 	}
-	
-	
-	
+
+	@Override
+	public String toString() {
+		return "Individual [creditCardNr=" + creditCardNr + ", expireMonth=" + expireMonth + ", expireYear="
+				+ expireYear + ", CVV=" + CVV + ", name=" + name + ", address=" + address + "]";
+	}
 }
