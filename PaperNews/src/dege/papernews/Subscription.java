@@ -38,7 +38,12 @@ public class Subscription {
 	
 	public boolean canSend(int issueMonth) {
 		double monthlyPrice = (journal.getIssuePrice() * journal.getFrequency()) / 12;
-		if (payment.getReceivedPayment() >= (issueMonth * monthlyPrice))
+
+		int NormalizedMonth = issueMonth - dates.getStartMonth() + 1;
+		if (NormalizedMonth < 1) 
+			NormalizedMonth += 12;
+		
+		if (payment.getReceivedPayment() >= (NormalizedMonth * monthlyPrice))
 			return true;
 		return false;
 	}
