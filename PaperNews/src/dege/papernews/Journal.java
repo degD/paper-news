@@ -39,4 +39,10 @@ public class Journal {
 	public Vector<Subscription> getSubscriptions() {
 		return subscriptions;
 	}
+
+	@Override
+	public String toString() {
+		return "Journal [name=" + name + ", issn=" + issn + ", frequency=" + frequency + ", issuePrice=" + issuePrice
+				+ "]";
+	}
 }
