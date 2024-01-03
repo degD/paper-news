@@ -32,6 +32,10 @@ public class Subscription {
 		return 0.0;
 	}
 	
+	public double getIssuePriceWithDiscount() {
+		return journal.getIssuePrice() * (100.0 - calculateDiscountRatio());
+	}
+	
 	public boolean acceptPayment(double amount) {
 		if (getCompletePaymentAmount() > payment.getReceivedPayment()) {
 			payment.increasePayment(amount);
@@ -42,7 +46,7 @@ public class Subscription {
 	}
 	
 	public boolean canSend(int issueMonth) {
-		double monthlyPrice = (journal.getIssuePrice() * journal.getFrequency()) / 12;
+		double monthlyPrice = (getIssuePriceWithDiscount() * journal.getFrequency()) / 12;
 
 		int NormalizedMonth = issueMonth - dates.getStartMonth() + 1;
 		if (NormalizedMonth < 1) 
@@ -62,7 +66,7 @@ public class Subscription {
 	}
 	
 	public double getCompletePaymentAmount() {
-		return journal.getIssuePrice() * journal.getFrequency();
+		return getIssuePriceWithDiscount() * journal.getFrequency();
 	}
 	
 	public boolean isPaymentComplete() {
