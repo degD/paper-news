@@ -32,8 +32,13 @@ public class Subscription {
 		return 0.0;
 	}
 	
-	public void acceptPayment(double amount) {
-		payment.increasePayment(amount);
+	public boolean acceptPayment(double amount) {
+		if (getCompletePaymentAmount() > payment.getReceivedPayment()) {
+			payment.increasePayment(amount);
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	public boolean canSend(int issueMonth) {
@@ -52,6 +57,16 @@ public class Subscription {
 		int endDateNr = dates.getEndMonth() + (dates.getEndYear() - dates.getStartYear()) * 12;
 		int currentDateNr = month + (year - dates.getStartYear()) * 12;
 		if (endDateNr >= currentDateNr)
+			return true;
+		return false;
+	}
+	
+	public double getCompletePaymentAmount() {
+		return journal.getIssuePrice() * journal.getFrequency();
+	}
+	
+	public boolean isPaymentComplete() {
+		if (payment.getReceivedPayment() == getCompletePaymentAmount())
 			return true;
 		return false;
 	}
