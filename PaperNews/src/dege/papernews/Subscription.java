@@ -70,4 +70,10 @@ public class Subscription {
 			return true;
 		return false;
 	}
+
+	@Override
+	public String toString() {
+		return "Subscription [dates=" + dates + ", payment=" + payment + ", copies=" + copies + ", journal=" + journal
+				+ ", subscriber=" + subscriber + "]";
+	}
 }

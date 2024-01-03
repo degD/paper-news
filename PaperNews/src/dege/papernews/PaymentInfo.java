@@ -20,4 +20,9 @@ public class PaymentInfo {
 	public double getReceivedPayment() {
 		return receivedPayment;
 	}
+
+	@Override
+	public String toString() {
+		return "PaymentInfo [discountRatio=" + discountRatio + ", receivedPayment=" + receivedPayment + "]";
+	}
 }
