@@ -3,7 +3,7 @@ package dege.papernews;
 public class PaymentInfo {
 
 	private final double discountRatio;
-	private double receivedPayment;
+	private double receivedPayment = 0;
 
 	public PaymentInfo(double discountRatio) {
 		this.discountRatio = discountRatio;
