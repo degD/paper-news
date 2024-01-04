@@ -22,6 +22,10 @@ public class Subscription {
 		return subscriber;
 	}
 	
+	public PaymentInfo getPayment() {
+		return payment;
+	}
+
 	private double calculateDiscountRatio() {
 		if (copies > 20)
 			return 20.0;
@@ -33,7 +37,7 @@ public class Subscription {
 	}
 	
 	public double getIssuePriceWithDiscount() {
-		return journal.getIssuePrice() * (100.0 - calculateDiscountRatio());
+		return journal.getIssuePrice() * ((100.0 - calculateDiscountRatio()) / 100.0);
 	}
 	
 	public boolean acceptPayment(double amount) {
