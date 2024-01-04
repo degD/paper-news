@@ -1,4 +1,6 @@
-package dege.papernews;
+package dege.papernewstest;
+
+import dege.papernews.*;
 
 import static org.junit.Assert.*;
 
