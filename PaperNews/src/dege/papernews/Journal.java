@@ -45,4 +45,8 @@ public class Journal {
 		return "Journal [name=" + name + ", issn=" + issn + ", frequency=" + frequency + ", issuePrice=" + issuePrice
 				+ "]";
 	}
+	
+	public String fancyToString() {
+		return "Journal" + "\nName: " + name + "\nISSN: " + issn + "\nFrequency: " + frequency + "\nPrice: " + issuePrice;
+	}
 }
